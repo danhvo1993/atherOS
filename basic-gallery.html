@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Gallery</title>
+    <style>
+        body { margin: 0; padding: 20px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .item {
+            aspect-ratio: 1;
+            background: #eee;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="item">
+            <img src="https://picsum.photos/300" alt="Image 1">
+        </div>
+        <div class="item">
+            <img src="https://picsum.photos/301" alt="Image 2">
+        </div>
+        <div class="item">
+            <img src="https://picsum.photos/302" alt="Image 3">
+        </div>
+    </div>
+</body>
+</html>

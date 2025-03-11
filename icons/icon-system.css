@@ -1,0 +1,175 @@
+/* Icon System CSS
+ * Version: 1.0.0
+ * Based on Microsoft's Fluent 2 Design System
+ */
+
+:root {
+  /* Icon Sizes */
+  --icon-size-xs: 12px;   /* Tiny icons, badges */
+  --icon-size-sm: 16px;   /* Default UI icons */
+  --icon-size-md: 20px;   /* Primary UI icons */
+  --icon-size-lg: 24px;   /* Featured icons */
+  --icon-size-xl: 32px;   /* Large feature icons */
+  --icon-size-2xl: 48px;  /* Hero/promotional icons */
+
+  /* Icon Colors */
+  --icon-color-default: var(--color-grey-12);
+  --icon-color-subtle: var(--color-grey-08);
+  --icon-color-inverse: var(--color-white);
+  --icon-color-brand: var(--color-blue);
+  --icon-color-success: var(--color-success);
+  --icon-color-warning: var(--color-warning);
+  --icon-color-error: var(--color-error);
+  --icon-color-info: var(--color-info);
+
+  /* Icon Weights */
+  --icon-weight-light: 1px;
+  --icon-weight-regular: 1.5px;
+  --icon-weight-bold: 2px;
+
+  /* Icon Container Sizes (for touch targets) */
+  --icon-container-sm: 32px;  /* Minimum touch target */
+  --icon-container-md: 40px;  /* Comfortable touch target */
+  --icon-container-lg: 48px;  /* Large touch target */
+}
+
+/* Base Icon Styles */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+  color: var(--icon-color-default);
+  stroke-width: var(--icon-weight-regular);
+  fill: none; /* Default to outlined icons */
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: all 0.2s ease;
+}
+
+/* Icon Sizes */
+.icon--xs { 
+  width: var(--icon-size-xs); 
+  height: var(--icon-size-xs); 
+}
+.icon--sm { 
+  width: var(--icon-size-sm); 
+  height: var(--icon-size-sm); 
+}
+.icon--md { 
+  width: var(--icon-size-md); 
+  height: var(--icon-size-md); 
+}
+.icon--lg { 
+  width: var(--icon-size-lg); 
+  height: var(--icon-size-lg); 
+}
+.icon--xl { 
+  width: var(--icon-size-xl); 
+  height: var(--icon-size-xl); 
+}
+.icon--2xl { 
+  width: var(--icon-size-2xl); 
+  height: var(--icon-size-2xl); 
+}
+
+/* Icon Colors */
+.icon--subtle { color: var(--icon-color-subtle); }
+.icon--inverse { color: var(--icon-color-inverse); }
+.icon--brand { color: var(--icon-color-brand); }
+.icon--success { color: var(--icon-color-success); }
+.icon--warning { color: var(--icon-color-warning); }
+.icon--error { color: var(--icon-color-error); }
+.icon--info { color: var(--icon-color-info); }
+
+/* Icon Weights */
+.icon--light { stroke-width: var(--icon-weight-light); }
+.icon--regular { stroke-width: var(--icon-weight-regular); }
+.icon--bold { stroke-width: var(--icon-weight-bold); }
+
+/* Icon Styles */
+.icon--filled {
+  fill: currentColor;
+  stroke: none;
+}
+
+.icon--outlined {
+  fill: none;
+  stroke: currentColor;
+}
+
+/* Icon Containers (for touch targets) */
+.icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-container-md);
+  height: var(--icon-container-md);
+  padding: var(--spacing-xs);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.icon-container:hover {
+  background-color: var(--color-grey-02);
+}
+
+.icon-container--sm {
+  width: var(--icon-container-sm);
+  height: var(--icon-container-sm);
+}
+
+.icon-container--md {
+  width: var(--icon-container-md);
+  height: var(--icon-container-md);
+}
+
+.icon-container--lg {
+  width: var(--icon-container-lg);
+  height: var(--icon-container-lg);
+}
+
+/* Icon Button */
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xs);
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--icon-color-default);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.icon-button:hover {
+  background-color: var(--color-grey-02);
+}
+
+.icon-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-blue);
+}
+
+/* Accessibility */
+.icon[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+/* Animation */
+.icon--spin {
+  animation: icon-spin 2s linear infinite;
+}
+
+@keyframes icon-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 

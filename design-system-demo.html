@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System Demo</title>
+    <link rel="stylesheet" href="design-system.css">
+    <style>
+        .demo-section {
+            padding: var(--spacing-2xl);
+            border-bottom: 1px solid var(--color-grey-04);
+        }
+        
+        .color-swatch {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            margin: var(--spacing-sm);
+            display: inline-block;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-section">
+        <h1>Design System Demo</h1>
+        <p>Based on Microsoft's Fluent 2 Design System</p>
+    </div>
+
+    <div class="demo-section">
+        <h2>Typography</h2>
+        <h1>Heading 1 - 32px</h1>
+        <h2>Heading 2 - 24px</h2>
+        <h3>Heading 3 - 20px</h3>
+        <h4>Heading 4 - 16px</h4>
+        <p>Body Text - 14px. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="text-small">Small Text - 12px</p>
+        <p class="text-tiny">Tiny Text - 10px</p>
+    </div>
+
+    <div class="demo-section">
+        <h2>Colors</h2>
+        <h3>Neutral Colors</h3>
+        <div>
+            <div class="color-swatch" style="background-color: var(--color-white); border: 1px solid var(--color-grey-04);"></div>
+            <div class="color-swatch" style="background-color: var(--color-grey-02);"></div>
+            <div class="color-swatch" style="background-color: var(--color-grey-04);"></div>
+            <div class="color-swatch" style="background-color: var(--color-grey-06);"></div>
+            <div class="color-swatch" style="background-color: var(--color-grey-08);"></div>
+            <div class="color-swatch" style="background-color: var(--color-grey-10);"></div>
+            <div class="color-swatch" style="background-color: var(--color-grey-12);"></div>
+            <div class="color-swatch" style="background-color: var(--color-black);"></div>
+        </div>
+
+        <h3 class="mt-lg">Shared Colors</h3>
+        <div>
+            <div class="color-swatch" style="background-color: var(--color-blue);"></div>
+            <div class="color-swatch" style="background-color: var(--color-purple);"></div>
+            <div class="color-swatch" style="background-color: var(--color-green);"></div>
+            <div class="color-swatch" style="background-color: var(--color-red);"></div>
+            <div class="color-swatch" style="background-color: var(--color-yellow);"></div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Components</h2>
+        <h3>Buttons</h3>
+        <button class="button button--primary">Primary Button</button>
+        <button class="button button--primary" disabled>Disabled Button</button>
+
+        <h3 class="mt-lg">Cards</h3>
+        <div class="demo-grid">
+            <div class="card">
+                <h4>Card Title</h4>
+                <p>Card content with some text.</p>
+                <button class="button button--primary">Action</button>
+            </div>
+            <div class="card">
+                <h4>Another Card</h4>
+                <p>More content in this card.</p>
+                <button class="button button--primary">Click Me</button>
+            </div>
+        </div>
+
+        <h3 class="mt-lg">Form Elements</h3>
+        <div class="card">
+            <form>
+                <div class="mb-md">
+                    <label for="name" class="text-small">Name</label>
+                    <input type="text" id="name" class="input" placeholder="Enter your name">
+                </div>
+                <div class="mb-md">
+                    <label for="email" class="text-small">Email</label>
+                    <input type="email" id="email" class="input" placeholder="Enter your email">
+                </div>
+                <button type="submit" class="button button--primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Spacing</h2>
+        <div class="card">
+            <div style="background-color: var(--color-grey-04); height: var(--spacing-xs); margin-bottom: var(--spacing-sm);">xs - 4px</div>
+            <div style="background-color: var(--color-grey-04); height: var(--spacing-sm); margin-bottom: var(--spacing-sm);">sm - 8px</div>
+            <div style="background-color: var(--color-grey-04); height: var(--spacing-md); margin-bottom: var(--spacing-sm);">md - 16px</div>
+            <div style="background-color: var(--color-grey-04); height: var(--spacing-lg); margin-bottom: var(--spacing-sm);">lg - 24px</div>
+            <div style="background-color: var(--color-grey-04); height: var(--spacing-xl); margin-bottom: var(--spacing-sm);">xl - 32px</div>
+        </div>
+    </div>
+
+    <footer class="demo-section">
+        <p class="text-small">Design System Demo - Version 1.0.0</p>
+    </footer>
+</body>
+</html> 

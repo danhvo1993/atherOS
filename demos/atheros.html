@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtherOS Design System</title>
+    <link rel="stylesheet" href="../design-system.css">
+    <style>
+        :root {
+            --color-primary: #0066FF;
+            --color-surface: #FFFFFF;
+            --color-text-primary: #1A1A1A;
+            --color-text-secondary: #666666;
+            --color-border: rgba(0, 0, 0, 0.1);
+            --color-overlay: rgba(0, 0, 0, 0.5);
+            
+            --font-family-base: 'Inter', system-ui, sans-serif;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.05);
+
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            --transition-slow: 350ms ease;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family-base);
+            color: var(--color-text-primary);
+            background-color: #F5F5F5;
+        }
+
+        .demo-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: var(--color-surface);
+            padding: var(--spacing-lg);
+            border-right: 1px solid var(--color-border);
+            overflow-y: auto;
+        }
+
+        .demo-content {
+            margin-left: 250px;
+            padding: var(--spacing-2xl);
+            max-width: 1200px;
+        }
+
+        .demo-section {
+            margin-bottom: var(--spacing-2xl);
+            background: var(--color-surface);
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .demo-nav h2 {
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .demo-link {
+            display: block;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            transition: all var(--transition-fast);
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 2px;
+        }
+
+        .demo-link:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .demo-link.active,
+        .demo-link[aria-current="page"] {
+            background-color: var(--color-primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Component Examples */
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            border: none;
+            gap: var(--spacing-xs);
+        }
+
+        .button--primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .button--primary:hover {
+            filter: brightness(1.1);
+        }
+
+        .button--secondary {
+            background-color: transparent;
+            border: 1px solid var(--color-border);
+        }
+
+        .button--secondary:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .input-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--color-text-secondary);
+        }
+
+        .input {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            transition: all var(--transition-fast);
+        }
+
+        .input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.1);
+        }
+
+        .card {
+            background: var(--color-surface);
+            padding: var(--spacing-lg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .color-item {
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+        }
+
+        .typography-example {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .spacing-example {
+            background: var(--color-primary);
+            opacity: 0.1;
+            margin-bottom: var(--spacing-sm);
+        }
+    </style>
+</head>
+<body>
+    <nav class="demo-nav">
+        <h2>AtherOS UI</h2>
+        <a href="../index.html" class="demo-link">Home</a>
+        <a href="colors.html" class="demo-link">Colors</a>
+        <a href="typography.html" class="demo-link">Typography</a>
+        <a href="spacing.html" class="demo-link">Spacing</a>
+        <a href="buttons.html" class="demo-link">Buttons</a>
+        <a href="forms.html" class="demo-link">Forms</a>
+        <a href="atheros.html" class="demo-link active" aria-current="page">AtherOS</a>
+    </nav>
+
+    <main class="demo-content">
+        <div class="demo-section">
+            <h1>AtherOS Design System</h1>
+            <p>A minimalist and functional design system focused on clarity and usability.</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>Colors</h2>
+            <div class="color-grid">
+                <div class="color-item" style="background: var(--color-primary)">Primary</div>
+                <div class="color-item" style="background: var(--color-text-primary); color: white">Text Primary</div>
+                <div class="color-item" style="background: var(--color-text-secondary); color: white">Text Secondary</div>
+                <div class="color-item" style="background: #F5F5F5; color: var(--color-text-primary)">Background</div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Components</h2>
+            <div class="component-grid">
+                <!-- Buttons -->
+                <div class="card">
+                    <h3>Buttons</h3>
+                    <button class="button button--primary">Primary Button</button>
+                    <button class="button button--secondary">Secondary Button</button>
+                </div>
+
+                <!-- Form Elements -->
+                <div class="card">
+                    <h3>Form Input</h3>
+                    <div class="input-group">
+                        <label class="input-label">Username</label>
+                        <input type="text" class="input" placeholder="Enter username">
+                    </div>
+                </div>
+
+                <!-- Card Example -->
+                <div class="card">
+                    <h3>Interactive Card</h3>
+                    <p>Cards have hover effects and smooth transitions.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Typography</h2>
+            <div class="typography-example">
+                <h1>Heading 1</h1>
+                <h2>Heading 2</h2>
+                <h3>Heading 3</h3>
+                <p>Regular paragraph text with <strong>bold</strong> and <em>italic</em> variations.</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Spacing</h2>
+            <div class="spacing-example" style="height: var(--spacing-xs)">XS (4px)</div>
+            <div class="spacing-example" style="height: var(--spacing-sm)">SM (8px)</div>
+            <div class="spacing-example" style="height: var(--spacing-md)">MD (16px)</div>
+            <div class="spacing-example" style="height: var(--spacing-lg)">LG (24px)</div>
+            <div class="spacing-example" style="height: var(--spacing-xl)">XL (32px)</div>
+            <div class="spacing-example" style="height: var(--spacing-2xl)">2XL (48px)</div>
+        </div>
+    </main>
+</body>
+</html> 

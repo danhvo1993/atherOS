@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon System Demo</title>
+    <link rel="stylesheet" href="../design-system.css">
+    <link rel="stylesheet" href="icon-system.css">
+    <style>
+        .demo-section {
+            padding: var(--spacing-2xl);
+            border-bottom: 1px solid var(--color-grey-04);
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            background-color: var(--color-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-item:hover {
+            background-color: var(--color-grey-02);
+        }
+
+        .icon-name {
+            margin-top: var(--spacing-sm);
+            font-size: var(--font-size-small);
+            color: var(--color-grey-10);
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .size-demo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .size-label {
+            width: 100px;
+            font-size: var(--font-size-small);
+            color: var(--color-grey-10);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-section">
+        <h1>Icon System</h1>
+        <p>Based on Microsoft's Fluent 2 Design System</p>
+    </div>
+
+    <div class="demo-section">
+        <h2>Icon Sizes</h2>
+        <div class="card">
+            <div class="size-demo">
+                <span class="size-label">Extra Small (12px)</span>
+                <i class="icon icon--xs" data-icon="home"></i>
+            </div>
+            <div class="size-demo">
+                <span class="size-label">Small (16px)</span>
+                <i class="icon icon--sm" data-icon="home"></i>
+            </div>
+            <div class="size-demo">
+                <span class="size-label">Medium (20px)</span>
+                <i class="icon icon--md" data-icon="home"></i>
+            </div>
+            <div class="size-demo">
+                <span class="size-label">Large (24px)</span>
+                <i class="icon icon--lg" data-icon="home"></i>
+            </div>
+            <div class="size-demo">
+                <span class="size-label">Extra Large (32px)</span>
+                <i class="icon icon--xl" data-icon="home"></i>
+            </div>
+            <div class="size-demo">
+                <span class="size-label">2X Large (48px)</span>
+                <i class="icon icon--2xl" data-icon="home"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Icon Colors</h2>
+        <div class="color-grid">
+            <div class="card">
+                <h4>Default</h4>
+                <i class="icon icon--lg" data-icon="info"></i>
+            </div>
+            <div class="card">
+                <h4>Subtle</h4>
+                <i class="icon icon--lg icon--subtle" data-icon="info"></i>
+            </div>
+            <div class="card">
+                <h4>Brand</h4>
+                <i class="icon icon--lg icon--brand" data-icon="info"></i>
+            </div>
+            <div class="card">
+                <h4>Success</h4>
+                <i class="icon icon--lg icon--success" data-icon="check"></i>
+            </div>
+            <div class="card">
+                <h4>Warning</h4>
+                <i class="icon icon--lg icon--warning" data-icon="alert"></i>
+            </div>
+            <div class="card">
+                <h4>Error</h4>
+                <i class="icon icon--lg icon--error" data-icon="x"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Icon Weights</h2>
+        <div class="card">
+            <div class="size-demo">
+                <span class="size-label">Light (1px)</span>
+                <i class="icon icon--lg icon--light" data-icon="home"></i>
+            </div>
+            <div class="size-demo">
+                <span class="size-label">Regular (1.5px)</span>
+                <i class="icon icon--lg icon--regular" data-icon="home"></i>
+            </div>
+            <div class="size-demo">
+                <span class="size-label">Bold (2px)</span>
+                <i class="icon icon--lg icon--bold" data-icon="home"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Icon Library</h2>
+        <div class="icon-grid">
+            <!-- Icons will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Interactive Examples</h2>
+        <div class="card">
+            <h3>Icon Buttons</h3>
+            <button class="icon-button">
+                <i class="icon" data-icon="menu"></i>
+            </button>
+            <button class="icon-button">
+                <i class="icon" data-icon="search"></i>
+            </button>
+            <button class="icon-button">
+                <i class="icon" data-icon="settings"></i>
+            </button>
+        </div>
+
+        <div class="card mt-lg">
+            <h3>Icon with Text</h3>
+            <button class="button button--primary">
+                <i class="icon icon--inverse" data-icon="plus"></i>
+                <span style="margin-left: var(--spacing-xs);">Add Item</span>
+            </button>
+        </div>
+
+        <div class="card mt-lg">
+            <h3>Loading State</h3>
+            <i class="icon icon--lg icon--brand icon--spin" data-icon="settings"></i>
+        </div>
+    </div>
+
+    <script src="icons.js"></script>
+    <script>
+        // Initialize icons
+        function initializeIcons() {
+            const iconElements = document.querySelectorAll('[data-icon]');
+            iconElements.forEach(element => {
+                const iconName = element.getAttribute('data-icon');
+                if (icons[iconName]) {
+                    element.innerHTML = icons[iconName];
+                }
+            });
+        }
+
+        // Populate icon library grid
+        function populateIconLibrary() {
+            const iconGrid = document.querySelector('.icon-grid');
+            Object.entries(icons).forEach(([name, svg]) => {
+                const div = document.createElement('div');
+                div.className = 'icon-item';
+                div.innerHTML = `
+                    <i class="icon icon--md" data-icon="${name}"></i>
+                    <span class="icon-name">${name}</span>
+                `;
+                iconGrid.appendChild(div);
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeIcons();
+            populateIconLibrary();
+        });
+    </script>
+</body>
+</html> 

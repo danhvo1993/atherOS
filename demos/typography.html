@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography - Sipher AGI Design System</title>
+    <link rel="stylesheet" href="../design-system.css">
+    <style>
+        .demo-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: var(--color-grey-02);
+            padding: var(--spacing-lg);
+            border-right: 1px solid var(--color-grey-04);
+            overflow-y: auto;
+        }
+
+        .demo-content {
+            margin-left: 250px;
+            padding: var(--spacing-2xl);
+            max-width: 1200px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .demo-section {
+            margin-bottom: var(--spacing-2xl);
+            max-width: 1000px;
+            margin: 0 auto var(--spacing-2xl);
+            padding: 0;
+        }
+
+        .demo-section h1 {
+            font-size: 48px;
+            line-height: 60px;
+            font-weight: 800;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
+            font-family: var(--font-family-base);
+        }
+
+        .demo-section h2 {
+            font-size: 32px;
+            line-height: 40px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-lg);
+            letter-spacing: -0.01em;
+            font-family: var(--font-family-base);
+            padding: 0;
+        }
+
+        .demo-section p {
+            font-size: 15px;
+            line-height: 22px;
+            font-weight: 500;
+            color: var(--color-grey-10);
+        }
+
+        .demo-link {
+            display: block;
+            color: var(--color-grey-12);
+            text-decoration: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            transition: all 0.2s ease;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 2px;
+        }
+
+        .demo-link:hover {
+            color: var(--color-grey-12);
+            background-color: var(--color-grey-04);
+        }
+
+        .demo-link.active, 
+        .demo-link[aria-current="page"] {
+            color: var(--color-grey-12);
+            background-color: var(--color-grey-05);
+            font-weight: bold;
+        }
+
+        .demo-link.active:hover, 
+        .demo-link[aria-current="page"]:hover {
+            background-color: var(--color-grey-06);
+        }
+
+        .type-scale {
+            margin-top: var(--spacing-lg);
+        }
+
+        .type-example {
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: var(--color-white);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .type-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--color-grey-04);
+        }
+
+        .type-specs {
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-small);
+            color: var(--color-grey-08);
+        }
+
+        .type-preview {
+            margin-top: var(--spacing-md);
+            font-family: var(--font-family-base);
+            color: var(--color-grey-12);
+        }
+
+        .font-family-demo {
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background: var(--color-white);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .font-family-name {
+            font-size: var(--font-size-large);
+            font-weight: 700;
+            color: var(--color-primary-500);
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.01em;
+            font-family: var(--font-family-base);
+        }
+
+        .font-family-example {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-md);
+            font-family: var(--font-family-base);
+            color: var(--color-grey-12);
+        }
+
+        .font-weight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .font-weight-example {
+            padding: var(--spacing-md);
+            background: var(--color-white);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .font-weight-example h4 {
+            font-size: var(--font-size-base);
+            color: var(--color-primary-500);
+            margin-bottom: var(--spacing-xs);
+            letter-spacing: -0.01em;
+            font-family: var(--font-family-base);
+        }
+
+        .font-weight-example p {
+            color: var(--color-grey-12);
+        }
+
+        .code-example {
+            background-color: var(--color-grey-02);
+            padding: var(--spacing-md);
+            border-radius: 4px;
+            margin: var(--spacing-md) 0;
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-small);
+            color: var(--color-grey-12);
+        }
+
+        .text-style-example {
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background: var(--color-white);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: var(--font-family-base);
+        }
+
+        .text-style-example .text-body {
+            font-size: 15px;
+            line-height: 22px;
+            font-weight: 500;
+            color: var(--color-grey-12);
+        }
+
+        .text-style-example .text-body-large {
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 500;
+            color: var(--color-grey-12);
+        }
+
+        .text-style-example .text-caption {
+            font-size: 13px;
+            line-height: 19px;
+            font-weight: 500;
+            color: var(--color-grey-08);
+        }
+
+        .text-style-example .text-overline {
+            font-size: 11px;
+            line-height: 15px;
+            font-weight: 500;
+            color: var(--color-grey-08);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .text-style-example .text-code {
+            font-family: var(--font-family-mono);
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 400;
+            color: var(--color-grey-12);
+            background: var(--color-grey-02);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 4px;
+        }
+
+        .demo-nav h2 {
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+            font-family: var(--font-family-base);
+            padding: 0;
+        }
+
+        .type-example h1, 
+        .type-example h2, 
+        .type-example h3, 
+        .type-example h4 {
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-xs);
+            letter-spacing: -0.01em;
+            font-family: var(--font-family-base);
+        }
+    </style>
+</head>
+<body>
+    <nav class="demo-nav">
+        <h2>Components</h2>
+        <a href="../index.html" class="demo-link">Home</a>
+        <a href="colors.html" class="demo-link">Colors</a>
+        <a href="typography.html" class="demo-link active" aria-current="page">Typography</a>
+        <a href="spacing.html" class="demo-link">Spacing</a>
+        <a href="icons.html" class="demo-link">Icons</a>
+        <a href="buttons.html" class="demo-link">Buttons</a>
+        <a href="forms.html" class="demo-link">Forms</a>
+        <a href="cards.html" class="demo-link">Cards</a>
+        <a href="layout.html" class="demo-link">Layout</a>
+    </nav>
+
+    <main class="demo-content">
+        <div class="demo-section">
+            <h1>Typography</h1>
+            <p>The typography system is based on Microsoft's Fluent 2 Design System, providing a clear hierarchy and consistent reading experience across all platforms.</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>Usage</h2>
+            <div class="code-example">
+                <pre><code>.my-element {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-base);
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Type Scale</h2>
+            <div class="type-scale">
+                <div class="type-example">
+                    <div class="type-info">
+                        <h1 style="font-size: 48px;">Display</h1>
+                        <div class="type-specs">
+                            font-size: 48px<br>
+                            line-height: 60px<br>
+                            font-weight: 800
+                        </div>
+                    </div>
+                    <div class="type-preview" style="font-size: 48px; line-height: 60px; font-weight: 800;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-info">
+                        <h1 style="font-size: 32px;">Heading 1</h1>
+                        <div class="type-specs">
+                            font-size: 32px<br>
+                            line-height: 40px<br>
+                            font-weight: 700
+                        </div>
+                    </div>
+                    <div class="type-preview" style="font-size: 32px; line-height: 40px; font-weight: 700;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-info">
+                        <h2 style="font-size: 24px;">Heading 2</h2>
+                        <div class="type-specs">
+                            font-size: 24px<br>
+                            line-height: 32px<br>
+                            font-weight: 700
+                        </div>
+                    </div>
+                    <div class="type-preview" style="font-size: 24px; line-height: 32px; font-weight: 700;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-info">
+                        <h3 style="font-size: 20px;">Heading 3</h3>
+                        <div class="type-specs">
+                            font-size: 20px<br>
+                            line-height: 28px<br>
+                            font-weight: 700
+                        </div>
+                    </div>
+                    <div class="type-preview" style="font-size: 20px; line-height: 28px; font-weight: 700;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-info">
+                        <h4 style="font-size: 18px;">Large Body</h4>
+                        <div class="type-specs">
+                            font-size: 18px<br>
+                            line-height: 24px<br>
+                            font-weight: 500
+                        </div>
+                    </div>
+                    <div class="type-preview" style="font-size: 18px; line-height: 24px; font-weight: 500;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-info">
+                        <h4 style="font-size: 15px;">Body</h4>
+                        <div class="type-specs">
+                            font-size: 15px<br>
+                            line-height: 22px<br>
+                            font-weight: 500
+                        </div>
+                    </div>
+                    <div class="type-preview" style="font-size: 15px; line-height: 22px; font-weight: 500;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-info">
+                        <h4 style="font-size: 13px;">Caption</h4>
+                        <div class="type-specs">
+                            font-size: 13px<br>
+                            line-height: 19px<br>
+                            font-weight: 500
+                        </div>
+                    </div>
+                    <div class="type-preview" style="font-size: 13px; line-height: 19px; font-weight: 500;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                </div>
+
+                <div class="type-example">
+                    <div class="type-info">
+                        <h4 style="font-size: 11px;">Small / Overline</h4>
+                        <div class="type-specs">
+                            font-size: 11px<br>
+                            line-height: 15px<br>
+                            font-weight: 500<br>
+                            letter-spacing: 0.05em
+                        </div>
+                    </div>
+                    <div class="type-preview" style="font-size: 11px; line-height: 15px; font-weight: 500; letter-spacing: 0.05em;">
+                        The quick brown fox jumps over the lazy dog
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Font Families</h2>
+            <div class="font-family-demo" style="font-family: var(--font-family-base);">
+                <div class="font-family-name">Base Font (Segoe UI)</div>
+                <div class="font-family-example">The quick brown fox jumps over the lazy dog</div>
+                <div class="type-specs">var(--font-family-base)</div>
+            </div>
+
+            <div class="font-family-demo" style="font-family: var(--font-family-mono);">
+                <div class="font-family-name">Monospace</div>
+                <div class="font-family-example">The quick brown fox jumps over the lazy dog</div>
+                <div class="type-specs">var(--font-family-mono)</div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Font Weights</h2>
+            <div class="font-weight-grid">
+                <div class="font-weight-example" style="font-weight: var(--font-weight-light);">
+                    <h4>Light</h4>
+                    <p>The quick brown fox</p>
+                    <div class="type-specs">var(--font-weight-light)</div>
+                </div>
+
+                <div class="font-weight-example" style="font-weight: var(--font-weight-regular);">
+                    <h4>Regular</h4>
+                    <p>The quick brown fox</p>
+                    <div class="type-specs">var(--font-weight-regular)</div>
+                </div>
+
+                <div class="font-weight-example" style="font-weight: var(--font-weight-medium);">
+                    <h4>Medium</h4>
+                    <p>The quick brown fox</p>
+                    <div class="type-specs">var(--font-weight-medium)</div>
+                </div>
+
+                <div class="font-weight-example" style="font-weight: var(--font-weight-semibold);">
+                    <h4>Semibold</h4>
+                    <p>The quick brown fox</p>
+                    <div class="type-specs">var(--font-weight-semibold)</div>
+                </div>
+
+                <div class="font-weight-example" style="font-weight: var(--font-weight-bold);">
+                    <h4>Bold</h4>
+                    <p>The quick brown fox</p>
+                    <div class="type-specs">var(--font-weight-bold)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Text Styles</h2>
+            <div class="text-style-example">
+                <p class="text-body">Body Text - The quick brown fox jumps over the lazy dog</p>
+                <p class="text-body-large">Large Body Text - The quick brown fox jumps over the lazy dog</p>
+                <p class="text-caption">Caption Text - The quick brown fox jumps over the lazy dog</p>
+                <p class="text-overline">Overline Text - THE QUICK BROWN FOX</p>
+                <p class="text-code">Code Text - const example = "Hello World";</p>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Accessibility</h2>
+            <p>The typography system is designed with accessibility in mind:</p>
+            <ul>
+                <li>All text meets WCAG 2.1 AA standards for contrast ratio</li>
+                <li>Base font size is responsive and adjusts based on user preferences</li>
+                <li>Line heights ensure proper readability</li>
+                <li>Font weights maintain legibility across different screen types</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html> 

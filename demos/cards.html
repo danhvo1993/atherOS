@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards - AtherOS Design System</title>
+    <link rel="stylesheet" href="../design-system.css">
+    <style>
+        .demo-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: var(--color-grey-02);
+            padding: var(--spacing-lg);
+            border-right: 1px solid var(--color-grey-04);
+            overflow-y: auto;
+        }
+
+        .demo-content {
+            margin-left: 250px;
+            padding: var(--spacing-2xl);
+            max-width: 1200px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .demo-section {
+            margin-bottom: var(--spacing-2xl);
+            max-width: 1000px;
+            margin: 0 auto var(--spacing-2xl);
+            padding: 0;
+        }
+
+        .demo-section h1 {
+            font-size: 48px;
+            line-height: 60px;
+            font-weight: 800;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
+        }
+
+        .demo-section h2 {
+            font-size: 32px;
+            line-height: 40px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-lg);
+            letter-spacing: -0.01em;
+            padding: 0;
+        }
+
+        .demo-section p {
+            font-size: 15px;
+            line-height: 22px;
+            font-weight: 500;
+            color: var(--color-grey-10);
+        }
+
+        .demo-nav h2 {
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .demo-link {
+            display: block;
+            color: var(--color-grey-12);
+            text-decoration: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            transition: all 0.2s ease;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 2px;
+        }
+
+        .demo-link:hover {
+            color: var(--color-grey-12);
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .demo-link.active, 
+        .demo-link[aria-current="page"] {
+            color: var(--color-grey-12);
+            background-color: var(--color-grey-05);
+            font-weight: bold;
+        }
+
+        .demo-link.active:hover, 
+        .demo-link[aria-current="page"]:hover {
+            background-color: var(--color-grey-06);
+        }
+
+        /* Card Components */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            padding: 0;
+            width: 100%;
+        }
+
+        .card {
+            margin: 0;
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card--basic {
+            padding: var(--spacing-lg);
+        }
+
+        .card--image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card--interactive {
+            cursor: pointer;
+        }
+
+        .card__content {
+            padding: var(--spacing-lg);
+        }
+
+        .card__title {
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-grey-12);
+        }
+
+        .card__description {
+            font-size: 14px;
+            line-height: 20px;
+            color: var(--color-grey-10);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .card__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--color-grey-04);
+            margin-top: var(--spacing-md);
+        }
+
+        .card__meta {
+            font-size: 12px;
+            color: var(--color-grey-08);
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+
+        .button--primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .button--primary:hover {
+            filter: brightness(1.1);
+        }
+
+        .button--secondary {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-grey-04);
+            color: var(--color-grey-12);
+        }
+
+        .button--secondary:hover {
+            background-color: var(--color-grey-02);
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: rgba(0, 102, 255, 0.1);
+            color: var(--color-primary);
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .code-example {
+            background-color: var(--color-grey-02);
+            padding: var(--spacing-md);
+            border-radius: 4px;
+            margin: var(--spacing-md) 0;
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-small);
+        }
+    </style>
+</head>
+<body>
+    <nav class="demo-nav">
+        <h2>Components</h2>
+        <a href="../index.html" class="demo-link">Home</a>
+        <a href="colors.html" class="demo-link">Colors</a>
+        <a href="typography.html" class="demo-link">Typography</a>
+        <a href="spacing.html" class="demo-link">Spacing</a>
+        <a href="icons.html" class="demo-link">Icons</a>
+        <a href="buttons.html" class="demo-link">Buttons</a>
+        <a href="forms.html" class="demo-link">Forms</a>
+        <a href="cards.html" class="demo-link active" aria-current="page">Cards</a>
+        <a href="layout.html" class="demo-link">Layout</a>
+    </nav>
+
+    <main class="demo-content">
+        <div class="demo-section">
+            <h1>Cards</h1>
+            <p>Cards are flexible containers that group related content and actions. They provide a consistent way to present information across the interface.</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>Usage</h2>
+            <div class="code-example">
+                <pre><code>&lt;div class="card card--basic"&gt;
+    &lt;h3 class="card__title"&gt;Card Title&lt;/h3&gt;
+    &lt;p class="card__description"&gt;Card description text&lt;/p&gt;
+    &lt;div class="card__footer"&gt;
+        &lt;span class="card__meta"&gt;Meta information&lt;/span&gt;
+        &lt;button class="button button--secondary"&gt;Action&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Basic Cards</h2>
+            <div class="card-grid">
+                <!-- Simple Card -->
+                <div class="card card--basic">
+                    <h3 class="card__title">Simple Card</h3>
+                    <p class="card__description">A basic card with minimal styling, perfect for simple content presentation.</p>
+                </div>
+
+                <!-- Card with Footer -->
+                <div class="card card--basic">
+                    <h3 class="card__title">Card with Footer</h3>
+                    <p class="card__description">This card includes a footer section for additional information or actions.</p>
+                    <div class="card__footer">
+                        <span class="card__meta">Last updated: 2h ago</span>
+                        <button class="button button--secondary">Learn More</button>
+                    </div>
+                </div>
+
+                <!-- Card with Tags -->
+                <div class="card card--basic">
+                    <span class="tag">Featured</span>
+                    <h3 class="card__title">Card with Tags</h3>
+                    <p class="card__description">Cards can include tags to highlight important information or categories.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Image Cards</h2>
+            <div class="card-grid">
+                <!-- Image Card -->
+                <div class="card card--image">
+                    <img src="https://picsum.photos/600/400" alt="Sample image">
+                    <div class="card__content">
+                        <h3 class="card__title">Image Card</h3>
+                        <p class="card__description">Cards can feature images with supporting content below.</p>
+                    </div>
+                </div>
+
+                <!-- Interactive Image Card -->
+                <div class="card card--image card--interactive">
+                    <img src="https://picsum.photos/601/400" alt="Sample image">
+                    <div class="card__content">
+                        <h3 class="card__title">Interactive Card</h3>
+                        <p class="card__description">This card has hover effects and indicates it's clickable.</p>
+                        <div class="card__footer">
+                            <div class="badge">1</div>
+                            <button class="button button--primary">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Keep card content concise and focused</li>
+                <li>Use consistent padding and spacing</li>
+                <li>Include clear calls-to-action when needed</li>
+                <li>Maintain hierarchy within card content</li>
+                <li>Use appropriate hover states for interactive cards</li>
+                <li>Optimize images for performance</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html> 

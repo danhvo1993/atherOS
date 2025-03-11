@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        :root {
+            --spacing-md: 16px;
+            --spacing-xl: 32px;
+            --color-grey-02: #F5F5F5;
+            --color-grey-12: #333333;
+            --color-white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--color-grey-02);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            background: var(--color-grey-12);
+            color: var(--color-white);
+            border-radius: 8px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--color-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .gallery-grid {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Image Gallery</h1>
+        <p>A collection of beautiful images</p>
+    </header>
+
+    <main class="gallery-grid">
+        <div class="gallery-item">
+            <img src="https://picsum.photos/300/300?random=1" alt="Gallery Image 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/300/300?random=2" alt="Gallery Image 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/300/300?random=3" alt="Gallery Image 3">
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/300/300?random=4" alt="Gallery Image 4">
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/300/300?random=5" alt="Gallery Image 5">
+        </div>
+        <div class="gallery-item">
+            <img src="https://picsum.photos/300/300?random=6" alt="Gallery Image 6">
+        </div>
+    </main>
+
+    <script>
+        // Add more images dynamically
+        const grid = document.querySelector('.gallery-grid');
+        for (let i = 7; i <= 50; i++) {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            
+            const img = document.createElement('img');
+            img.src = `https://picsum.photos/300/300?random=${i}`;
+            img.alt = `Gallery Image ${i}`;
+            img.loading = 'lazy';
+            
+            item.appendChild(img);
+            grid.appendChild(item);
+        }
+    </script>
+</body>
+</html>

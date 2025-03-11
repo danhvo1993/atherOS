@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacing - AtherOS Design System</title>
+    <link rel="stylesheet" href="../design-system.css">
+    <style>
+        .demo-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: var(--color-grey-02);
+            padding: var(--spacing-lg);
+            border-right: 1px solid var(--color-grey-04);
+            overflow-y: auto;
+        }
+
+        .demo-content {
+            margin-left: 250px;
+            padding: var(--spacing-2xl);
+            max-width: 1200px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .demo-section {
+            margin-bottom: var(--spacing-2xl);
+            max-width: 1000px;
+            margin: 0 auto var(--spacing-2xl);
+            padding: 0;
+        }
+
+        .demo-section h1 {
+            font-size: 48px;
+            line-height: 60px;
+            font-weight: 800;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
+        }
+
+        .demo-section h2 {
+            font-size: 32px;
+            line-height: 40px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-lg);
+            letter-spacing: -0.01em;
+            padding: 0;
+        }
+
+        .demo-section p {
+            font-size: 15px;
+            line-height: 22px;
+            font-weight: 500;
+            color: var(--color-grey-10);
+        }
+
+        .demo-nav h2 {
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .demo-link {
+            display: block;
+            color: var(--color-grey-12);
+            text-decoration: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            transition: all 0.2s ease;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 2px;
+        }
+
+        .demo-link:hover {
+            color: var(--color-grey-12);
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .demo-link.active, 
+        .demo-link[aria-current="page"] {
+            color: var(--color-grey-12);
+            background-color: var(--color-grey-05);
+            font-weight: bold;
+        }
+
+        .demo-link.active:hover, 
+        .demo-link[aria-current="page"]:hover {
+            background-color: var(--color-grey-06);
+        }
+
+        /* Spacing Examples */
+        .spacing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            padding: 0;
+            width: 100%;
+        }
+
+        .spacing-example {
+            margin: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: var(--color-white);
+        }
+
+        .spacing-box {
+            background: var(--color-primary);
+            opacity: 0.1;
+            margin-bottom: var(--spacing-sm);
+            border-radius: 4px;
+        }
+
+        .spacing-info {
+            padding: var(--spacing-md);
+            background: var(--color-white);
+        }
+
+        .spacing-label {
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-grey-12);
+        }
+
+        .spacing-value {
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-small);
+            color: var(--color-grey-10);
+        }
+
+        .spacing-usage {
+            font-size: var(--font-size-small);
+            color: var(--color-grey-08);
+            margin-top: var(--spacing-xs);
+        }
+
+        .spacing-component {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            border: 1px solid var(--color-grey-04);
+            border-radius: 8px;
+            background: var(--color-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .spacing-component h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .spacing-component p {
+            font-size: 14px;
+            color: var(--color-grey-10);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .spacing-stack > * + * {
+            margin-top: var(--spacing-md);
+        }
+
+        .spacing-cluster {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .spacing-cluster .tag {
+            background: rgba(0, 102, 255, 0.1);
+            color: var(--color-primary);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .code-example {
+            background-color: var(--color-grey-02);
+            padding: var(--spacing-md);
+            border-radius: 4px;
+            margin: var(--spacing-md) 0;
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-small);
+        }
+    </style>
+</head>
+<body>
+    <nav class="demo-nav">
+        <h2>Components</h2>
+        <a href="../index.html" class="demo-link">Home</a>
+        <a href="colors.html" class="demo-link">Colors</a>
+        <a href="typography.html" class="demo-link">Typography</a>
+        <a href="spacing.html" class="demo-link active" aria-current="page">Spacing</a>
+        <a href="icons.html" class="demo-link">Icons</a>
+        <a href="buttons.html" class="demo-link">Buttons</a>
+        <a href="forms.html" class="demo-link">Forms</a>
+        <a href="cards.html" class="demo-link">Cards</a>
+        <a href="layout.html" class="demo-link">Layout</a>
+    </nav>
+
+    <main class="demo-content">
+        <div class="demo-section">
+            <h1>Spacing</h1>
+            <p>A consistent spacing scale helps create visual rhythm and hierarchy in interfaces. AtherOS uses a modular spacing scale based on 4px units.</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>Usage</h2>
+            <div class="code-example">
+                <pre><code>.my-element {
+    margin: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-lg);
+}</code></pre>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Spacing Scale</h2>
+            <div class="spacing-grid">
+                <!-- XS Spacing -->
+                <div class="spacing-example">
+                    <div class="spacing-box" style="height: var(--spacing-xs)"></div>
+                    <div class="spacing-info">
+                        <div class="spacing-label">Extra Small (XS)</div>
+                        <div class="spacing-value">var(--spacing-xs)</div>
+                        <div class="spacing-usage">Used for tight spaces between icons and text</div>
+                    </div>
+                </div>
+
+                <!-- SM Spacing -->
+                <div class="spacing-example">
+                    <div class="spacing-box" style="height: var(--spacing-sm)"></div>
+                    <div class="spacing-info">
+                        <div class="spacing-label">Small (SM)</div>
+                        <div class="spacing-value">var(--spacing-sm)</div>
+                        <div class="spacing-usage">Common padding for buttons and form elements</div>
+                    </div>
+                </div>
+
+                <!-- MD Spacing -->
+                <div class="spacing-example">
+                    <div class="spacing-box" style="height: var(--spacing-md)"></div>
+                    <div class="spacing-info">
+                        <div class="spacing-label">Medium (MD)</div>
+                        <div class="spacing-value">var(--spacing-md)</div>
+                        <div class="spacing-usage">Standard spacing between components</div>
+                    </div>
+                </div>
+
+                <!-- LG Spacing -->
+                <div class="spacing-example">
+                    <div class="spacing-box" style="height: var(--spacing-lg)"></div>
+                    <div class="spacing-info">
+                        <div class="spacing-label">Large (LG)</div>
+                        <div class="spacing-value">var(--spacing-lg)</div>
+                        <div class="spacing-usage">Section padding and larger gaps</div>
+                    </div>
+                </div>
+
+                <!-- XL Spacing -->
+                <div class="spacing-example">
+                    <div class="spacing-box" style="height: var(--spacing-xl)"></div>
+                    <div class="spacing-info">
+                        <div class="spacing-label">Extra Large (XL)</div>
+                        <div class="spacing-value">var(--spacing-xl)</div>
+                        <div class="spacing-usage">Major section spacing</div>
+                    </div>
+                </div>
+
+                <!-- 2XL Spacing -->
+                <div class="spacing-example">
+                    <div class="spacing-box" style="height: var(--spacing-2xl)"></div>
+                    <div class="spacing-info">
+                        <div class="spacing-label">2X Large (2XL)</div>
+                        <div class="spacing-value">var(--spacing-2xl)</div>
+                        <div class="spacing-usage">Page-level spacing and margins</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Spacing Patterns</h2>
+            
+            <!-- Stack Pattern -->
+            <div class="spacing-component">
+                <h3>Stack Pattern</h3>
+                <p>Consistent vertical spacing between elements</p>
+                <div class="spacing-stack">
+                    <div class="spacing-box" style="height: 40px"></div>
+                    <div class="spacing-box" style="height: 40px"></div>
+                    <div class="spacing-box" style="height: 40px"></div>
+                </div>
+            </div>
+
+            <!-- Cluster Pattern -->
+            <div class="spacing-component">
+                <h3>Cluster Pattern</h3>
+                <p>Flexible spacing for groups of related elements</p>
+                <div class="spacing-cluster">
+                    <span class="tag">Design</span>
+                    <span class="tag">Development</span>
+                    <span class="tag">UI</span>
+                    <span class="tag">UX</span>
+                    <span class="tag">System</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Use consistent spacing within component types</li>
+                <li>Maintain proper hierarchy with spacing scale</li>
+                <li>Consider content density when choosing spacing values</li>
+                <li>Use larger spacing for separation of major sections</li>
+                <li>Maintain breathing room around interactive elements</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html> 

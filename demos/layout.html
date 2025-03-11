@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout - AtherOS Design System</title>
+    <link rel="stylesheet" href="../design-system.css">
+    <style>
+        .demo-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: var(--color-grey-02);
+            padding: var(--spacing-lg);
+            border-right: 1px solid var(--color-grey-04);
+            overflow-y: auto;
+        }
+
+        .demo-content {
+            margin-left: 250px;
+            padding: var(--spacing-2xl);
+            max-width: 1200px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .demo-section {
+            margin-bottom: var(--spacing-2xl);
+            max-width: 1000px;
+            margin: 0 auto var(--spacing-2xl);
+            padding: 0;
+        }
+
+        .demo-section h1 {
+            font-size: 48px;
+            line-height: 60px;
+            font-weight: 800;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
+        }
+
+        .demo-section h2 {
+            font-size: 32px;
+            line-height: 40px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-lg);
+            letter-spacing: -0.01em;
+            padding: 0;
+        }
+
+        .demo-section p {
+            font-size: 15px;
+            line-height: 22px;
+            font-weight: 500;
+            color: var(--color-grey-10);
+        }
+
+        .demo-nav h2 {
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .demo-link {
+            display: block;
+            color: var(--color-grey-12);
+            text-decoration: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            transition: all 0.2s ease;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 2px;
+        }
+
+        .demo-link:hover {
+            color: var(--color-grey-12);
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .demo-link.active, 
+        .demo-link[aria-current="page"] {
+            color: var(--color-grey-12);
+            background-color: var(--color-grey-05);
+            font-weight: bold;
+        }
+
+        .demo-link.active:hover, 
+        .demo-link[aria-current="page"]:hover {
+            background-color: var(--color-grey-06);
+        }
+
+        /* Layout Components */
+        .layout-example {
+            margin-top: var(--spacing-lg);
+            border: 1px solid var(--color-grey-04);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--color-white);
+        }
+
+        .layout-title {
+            padding: var(--spacing-md);
+            background: var(--color-grey-02);
+            border-bottom: 1px solid var(--color-grey-04);
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 600;
+            color: var(--color-grey-12);
+        }
+
+        .layout-content {
+            padding: var(--spacing-lg);
+        }
+
+        .layout-box {
+            background: rgba(0, 102, 255, 0.08);
+            border: 1px solid var(--color-primary);
+            padding: var(--spacing-md);
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 20px;
+            color: var(--color-grey-12);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .layout-box:hover {
+            background: rgba(0, 102, 255, 0.12);
+            border-color: var(--color-primary);
+        }
+
+        /* Update specific layout boxes for better contrast */
+        .holy-grail-header,
+        .holy-grail-footer {
+            background: var(--color-grey-12);
+            color: var(--color-white);
+            font-weight: 500;
+        }
+
+        .holy-grail-left,
+        .holy-grail-right {
+            background: var(--color-grey-03);
+            color: var(--color-grey-12);
+            font-weight: 500;
+        }
+
+        .holy-grail-main {
+            background: var(--color-white);
+            color: var(--color-grey-12);
+            font-weight: 500;
+            border: 1px solid var(--color-grey-04);
+        }
+
+        /* Grid Layout */
+        .grid-basic {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .grid-responsive {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .grid-areas {
+            display: grid;
+            grid-template-areas:
+                "header header header"
+                "sidebar main main"
+                "footer footer footer";
+            gap: var(--spacing-md);
+        }
+
+        .grid-areas .header { grid-area: header; }
+        .grid-areas .sidebar { grid-area: sidebar; }
+        .grid-areas .main { grid-area: main; }
+        .grid-areas .footer { grid-area: footer; }
+
+        /* Flexbox Layout */
+        .flex-container {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .flex-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .flex-stack {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .flex-distribute {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .grid-areas {
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+
+            .flex-distribute {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+        /* Container Layout */
+        .container-example {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+            background: var(--color-grey-02);
+            border-radius: 8px;
+        }
+
+        /* Holy Grail Layout */
+        .holy-grail {
+            min-height: 400px;
+            display: grid;
+            grid-template: auto 1fr auto / auto 1fr auto;
+        }
+
+        .holy-grail-header {
+            grid-column: 1 / 4;
+            background: var(--color-primary);
+            color: white;
+            padding: var(--spacing-md);
+        }
+
+        .holy-grail-left {
+            grid-column: 1 / 2;
+            background: var(--color-grey-02);
+            padding: var(--spacing-md);
+            width: 150px;
+        }
+
+        .holy-grail-main {
+            grid-column: 2 / 3;
+            padding: var(--spacing-md);
+            background: var(--color-white);
+        }
+
+        .holy-grail-right {
+            grid-column: 3 / 4;
+            background: var(--color-grey-02);
+            padding: var(--spacing-md);
+            width: 150px;
+        }
+
+        .holy-grail-footer {
+            grid-column: 1 / 4;
+            background: var(--color-primary);
+            color: white;
+            padding: var(--spacing-md);
+        }
+
+        .code-example {
+            background-color: var(--color-grey-02);
+            padding: var(--spacing-md);
+            border-radius: 4px;
+            margin: var(--spacing-md) 0;
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-small);
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: var(--spacing-xl);
+            color: var(--color-grey-10);
+            font-size: 15px;
+            line-height: 22px;
+        }
+
+        li {
+            margin-bottom: var(--spacing-xs);
+        }
+    </style>
+</head>
+<body>
+    <nav class="demo-nav">
+        <h2>Components</h2>
+        <a href="../index.html" class="demo-link">Home</a>
+        <a href="colors.html" class="demo-link">Colors</a>
+        <a href="typography.html" class="demo-link">Typography</a>
+        <a href="spacing.html" class="demo-link">Spacing</a>
+        <a href="icons.html" class="demo-link">Icons</a>
+        <a href="buttons.html" class="demo-link">Buttons</a>
+        <a href="forms.html" class="demo-link">Forms</a>
+        <a href="cards.html" class="demo-link">Cards</a>
+        <a href="layout.html" class="demo-link active" aria-current="page">Layout</a>
+    </nav>
+
+    <main class="demo-content">
+        <div class="demo-section">
+            <h1>Layout</h1>
+            <p>The AtherOS layout system provides flexible and responsive patterns for organizing content. It uses a combination of CSS Grid and Flexbox for optimal layout control.</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>Usage</h2>
+            <div class="code-example">
+                <pre><code>&lt;div class="grid-basic"&gt;
+    &lt;div class="layout-box"&gt;1&lt;/div&gt;
+    &lt;div class="layout-box"&gt;2&lt;/div&gt;
+    &lt;div class="layout-box"&gt;3&lt;/div&gt;
+    &lt;div class="layout-box"&gt;4&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Grid Layouts</h2>
+            
+            <!-- Basic Grid -->
+            <div class="layout-example">
+                <div class="layout-title">Basic Grid</div>
+                <div class="layout-content">
+                    <div class="grid-basic">
+                        <div class="layout-box">1</div>
+                        <div class="layout-box">2</div>
+                        <div class="layout-box">3</div>
+                        <div class="layout-box">4</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Responsive Grid -->
+            <div class="layout-example">
+                <div class="layout-title">Responsive Grid</div>
+                <div class="layout-content">
+                    <div class="grid-responsive">
+                        <div class="layout-box">Auto-fit</div>
+                        <div class="layout-box">Responsive</div>
+                        <div class="layout-box">Grid</div>
+                        <div class="layout-box">Layout</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Areas -->
+            <div class="layout-example">
+                <div class="layout-title">Grid Areas</div>
+                <div class="layout-content">
+                    <div class="grid-areas">
+                        <div class="layout-box header">Header</div>
+                        <div class="layout-box sidebar">Sidebar</div>
+                        <div class="layout-box main">Main Content</div>
+                        <div class="layout-box footer">Footer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Flexbox Layouts</h2>
+
+            <!-- Basic Flex -->
+            <div class="layout-example">
+                <div class="layout-title">Flex Container</div>
+                <div class="layout-content">
+                    <div class="flex-container">
+                        <div class="layout-box flex-item">Flex 1</div>
+                        <div class="layout-box flex-item">Flex 2</div>
+                        <div class="layout-box flex-item">Flex 3</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flex Stack -->
+            <div class="layout-example">
+                <div class="layout-title">Flex Stack</div>
+                <div class="layout-content">
+                    <div class="flex-stack">
+                        <div class="layout-box">Stack 1</div>
+                        <div class="layout-box">Stack 2</div>
+                        <div class="layout-box">Stack 3</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flex Distribute -->
+            <div class="layout-example">
+                <div class="layout-title">Flex Distribute</div>
+                <div class="layout-content">
+                    <div class="flex-distribute">
+                        <div class="layout-box">Left</div>
+                        <div class="layout-box">Center</div>
+                        <div class="layout-box">Right</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Complex Layouts</h2>
+
+            <!-- Holy Grail Layout -->
+            <div class="layout-example">
+                <div class="layout-title">Holy Grail Layout</div>
+                <div class="layout-content">
+                    <div class="holy-grail">
+                        <header class="holy-grail-header">Header</header>
+                        <nav class="holy-grail-left">Left Sidebar</nav>
+                        <main class="holy-grail-main">Main Content Area</main>
+                        <aside class="holy-grail-right">Right Sidebar</aside>
+                        <footer class="holy-grail-footer">Footer</footer>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container -->
+            <div class="layout-example">
+                <div class="layout-title">Container Layout</div>
+                <div class="layout-content">
+                    <div class="container-example">
+                        <div class="layout-box">Centered Container</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Use CSS Grid for two-dimensional layouts</li>
+                <li>Use Flexbox for one-dimensional layouts</li>
+                <li>Implement mobile-first responsive design</li>
+                <li>Maintain consistent spacing between elements</li>
+                <li>Consider content reflow on different screen sizes</li>
+                <li>Use semantic HTML structure</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html> 
