@@ -93,10 +93,10 @@
         }
 
         .button-example {
+            padding: var(--spacing-lg);
             background: var(--color-white);
             border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .button-preview {
@@ -104,15 +104,14 @@
             justify-content: center;
             align-items: center;
             min-height: 80px;
-            margin-bottom: 0;
+            margin-bottom: var(--spacing-md);
             padding: var(--spacing-md);
             background: var(--color-grey-02);
-            border-radius: 0;
+            border-radius: 4px;
         }
 
         .button-info {
-            padding: var(--spacing-md);
-            margin-top: 0;
+            margin-top: var(--spacing-md);
         }
 
         .button-name {
@@ -155,7 +154,7 @@
             justify-content: center;
             padding: var(--spacing-sm) var(--spacing-lg);
             border-radius: 40px;
-            font-weight: 600;
+            font-weight: var(--font-weight-semibold);
             transition: all 0.2s ease;
             cursor: pointer;
             border: none;
@@ -169,16 +168,16 @@
 
         /* Primary Button */
         .button--primary {
-            background-color: #D5FD1B;
+            background-color: var(--color-primary);
             color: var(--color-grey-12);
         }
 
         .button--primary:hover {
-            background-color: #DFFE80;
+            background-color: var(--color-primary-dark);
         }
 
         .button--primary:active {
-            background-color: #B8E00F;
+            background-color: var(--color-primary-darker);
         }
 
         /* Secondary Button */
@@ -263,25 +262,22 @@
 
         /* Disabled state */
         .button:disabled {
-            opacity: 0.3;
+            opacity: 0.5;
             cursor: not-allowed;
         }
 
         /* Loading state */
         .button--loading {
             position: relative;
-            color: var(--color-grey-12);
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-xs);
+            color: transparent;
         }
 
         .button--loading::after {
             content: '';
-            position: relative;
+            position: absolute;
             width: 16px;
             height: 16px;
-            border: 2px solid var(--color-grey-12);
+            border: 2px solid currentColor;
             border-radius: 50%;
             border-right-color: transparent;
             animation: spin 1s linear infinite;
@@ -488,29 +484,29 @@
                     </div>
                     <div class="button-info">
                         <div class="button-name">Default</div>
-                        <div class="button-description">Primary 400 (#D5FD1B)</div>
+                        <div class="button-description">Normal interactive state</div>
                     </div>
                 </div>
 
                 <!-- Hover State -->
                 <div class="button-example">
                     <div class="button-preview">
-                        <button class="button button--primary" style="background-color: #DFFE80;">Hover State</button>
+                        <button class="button button--primary" style="background-color: var(--color-primary-dark);">Hover State</button>
                     </div>
                     <div class="button-info">
                         <div class="button-name">Hover</div>
-                        <div class="button-description">Primary 300 (#DFFE80)</div>
+                        <div class="button-description">Mouse over interaction</div>
                     </div>
                 </div>
 
                 <!-- Active State -->
                 <div class="button-example">
                     <div class="button-preview">
-                        <button class="button button--primary" style="background-color: #B8E00F;">Active State</button>
+                        <button class="button button--primary" style="background-color: var(--color-primary-darker);">Active State</button>
                     </div>
                     <div class="button-info">
                         <div class="button-name">Active</div>
-                        <div class="button-description">Primary 500 (#B8E00F)</div>
+                        <div class="button-description">Being clicked or tapped</div>
                     </div>
                 </div>
 
@@ -521,18 +517,18 @@
                     </div>
                     <div class="button-info">
                         <div class="button-name">Disabled</div>
-                        <div class="button-description">30% opacity</div>
+                        <div class="button-description">Not interactive</div>
                     </div>
                 </div>
 
                 <!-- Loading State -->
                 <div class="button-example">
                     <div class="button-preview">
-                        <button class="button button--primary button--loading">Loading...</button>
+                        <button class="button button--primary button--loading">Loading State</button>
                     </div>
                     <div class="button-info">
                         <div class="button-name">Loading</div>
-                        <div class="button-description">With loading text and spinner</div>
+                        <div class="button-description">Processing action</div>
                     </div>
                 </div>
             </div>

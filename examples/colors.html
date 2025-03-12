@@ -180,15 +180,6 @@
 
         /* Custom Color Variables */
         :root {
-            /* Core Colors */
-            --color-secondary: #6B7280;
-            --color-success: #10B981;
-            --color-warning: #F59E0B;
-            --color-error: #EF4444;
-            --color-info: #3B82F6;
-            --color-white: #FFFFFF;
-            --color-black: #000000;
-
             /* Primary Color and Shades */
             --color-primary-50: #F9FEE6;  /* Lightest */
             --color-primary-100: #F2FED0;
@@ -215,6 +206,7 @@
             --color-grey-12: #1A1A1A;  /* Darkest */
             
             /* Update semantic colors */
+            --color-primary: var(--color-primary-400);
             --color-primary-light: var(--color-primary-200);
             --color-primary-dark: var(--color-primary-600);
         }
@@ -253,199 +245,153 @@
         <div class="demo-section">
             <h2>Core Colors</h2>
             <div class="color-grid">
-                <!-- Secondary -->
+                <!-- Blue -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #6B7280;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-blue);"></div>
                     <div class="color-info">
-                        <div class="color-name">Secondary</div>
-                        <div class="color-value">var(--color-secondary)</div>
-                        <div class="color-value">#6B7280</div>
-                        <div class="color-usage">Secondary actions, subtle elements</div>
+                        <div class="color-name">Blue</div>
+                        <div class="color-value">var(--color-blue)</div>
+                        <div class="color-usage">Primary brand color, CTAs</div>
                     </div>
                 </div>
-                <!-- Success -->
+                <!-- Red -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #10B981;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-red);"></div>
                     <div class="color-info">
-                        <div class="color-name">Success</div>
-                        <div class="color-value">var(--color-success)</div>
-                        <div class="color-value">#10B981</div>
-                        <div class="color-usage">Positive actions, confirmation</div>
-                    </div>
-                </div>
-                <!-- Warning -->
-                <div class="color-card">
-                    <div class="color-swatch" style="background-color: #F59E0B;"></div>
-                    <div class="color-info">
-                        <div class="color-name">Warning</div>
-                        <div class="color-value">var(--color-warning)</div>
-                        <div class="color-value">#F59E0B</div>
-                        <div class="color-usage">Warnings, attention needed</div>
-                    </div>
-                </div>
-                <!-- Error -->
-                <div class="color-card">
-                    <div class="color-swatch" style="background-color: #EF4444;"></div>
-                    <div class="color-info">
-                        <div class="color-name">Error</div>
-                        <div class="color-value">var(--color-error)</div>
-                        <div class="color-value">#EF4444</div>
+                        <div class="color-name">Red</div>
+                        <div class="color-value">var(--color-red)</div>
                         <div class="color-usage">Error states, destructive actions</div>
                     </div>
                 </div>
-                <!-- Info -->
+                <!-- Green -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #3B82F6;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-green);"></div>
                     <div class="color-info">
-                        <div class="color-name">Info</div>
-                        <div class="color-value">var(--color-info)</div>
-                        <div class="color-value">#3B82F6</div>
-                        <div class="color-usage">Information, help text</div>
+                        <div class="color-name">Green</div>
+                        <div class="color-value">var(--color-green)</div>
+                        <div class="color-usage">Success states, positive actions</div>
                     </div>
                 </div>
-                <!-- White -->
+                <!-- Yellow -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #FFFFFF; border: 1px solid var(--color-grey-04);"></div>
+                    <div class="color-swatch" style="background-color: var(--color-yellow);"></div>
                     <div class="color-info">
-                        <div class="color-name">White</div>
-                        <div class="color-value">var(--color-white)</div>
-                        <div class="color-value">#FFFFFF</div>
-                        <div class="color-usage">Background, cards</div>
-                    </div>
-                </div>
-                <!-- Black -->
-                <div class="color-card">
-                    <div class="color-swatch" style="background-color: #000000;"></div>
-                    <div class="color-info">
-                        <div class="color-name">Black</div>
-                        <div class="color-value">var(--color-black)</div>
-                        <div class="color-value">#000000</div>
-                        <div class="color-usage">High contrast text, shadows</div>
+                        <div class="color-name">Yellow</div>
+                        <div class="color-value">var(--color-yellow)</div>
+                        <div class="color-usage">Warning states, attention</div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="demo-section">
-            <h2>Grey Shades</h2>
+            <h2>Grey Scale</h2>
             <div class="color-grid">
                 <!-- Grey 01 -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #FFFFFF; border: 1px solid var(--color-grey-04);"></div>
+                    <div class="color-swatch" style="background-color: var(--color-grey-01);"></div>
                     <div class="color-info">
                         <div class="color-name">Grey 01</div>
                         <div class="color-value">var(--color-grey-01)</div>
-                        <div class="color-value">#FFFFFF</div>
                         <div class="color-usage">Lightest grey, near-white backgrounds</div>
                     </div>
                 </div>
                 <!-- Grey 02 -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #F8F9FA;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-grey-02);"></div>
                     <div class="color-info">
                         <div class="color-name">Grey 02</div>
                         <div class="color-value">var(--color-grey-02)</div>
-                        <div class="color-value">#F8F9FA</div>
                         <div class="color-usage">Subtle backgrounds, hover states</div>
                     </div>
                 </div>
                 <!-- Grey 03 -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #F1F3F5;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-grey-03);"></div>
                     <div class="color-info">
                         <div class="color-name">Grey 03</div>
                         <div class="color-value">var(--color-grey-03)</div>
-                        <div class="color-value">#F1F3F5</div>
                         <div class="color-usage">Light borders, dividers</div>
                     </div>
                 </div>
                 <!-- Grey 04 -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #E9ECEF;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-grey-04);"></div>
                     <div class="color-info">
                         <div class="color-name">Grey 04</div>
                         <div class="color-value">var(--color-grey-04)</div>
-                        <div class="color-value">#E9ECEF</div>
                         <div class="color-usage">Borders, dividers</div>
                     </div>
                 </div>
                 <!-- Grey 05 -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #DEE2E6;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-grey-05);"></div>
                     <div class="color-info">
                         <div class="color-name">Grey 05</div>
                         <div class="color-value">var(--color-grey-05)</div>
-                        <div class="color-value">#DEE2E6</div>
                         <div class="color-usage">Light disabled states</div>
                     </div>
                 </div>
                 <!-- Grey 06 -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #CED4DA;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-grey-06);"></div>
                     <div class="color-info">
                         <div class="color-name">Grey 06</div>
                         <div class="color-value">var(--color-grey-06)</div>
-                        <div class="color-value">#CED4DA</div>
                         <div class="color-usage">Disabled states</div>
                     </div>
                 </div>
                 <!-- Grey 07 -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #ADB5BD;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-grey-07);"></div>
                     <div class="color-info">
                         <div class="color-name">Grey 07</div>
                         <div class="color-value">var(--color-grey-07)</div>
-                        <div class="color-value">#ADB5BD</div>
                         <div class="color-usage">Light text, icons</div>
                     </div>
                 </div>
                 <!-- Grey 08 -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #868E96;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-grey-08);"></div>
                     <div class="color-info">
                         <div class="color-name">Grey 08</div>
                         <div class="color-value">var(--color-grey-08)</div>
-                        <div class="color-value">#868E96</div>
                         <div class="color-usage">Secondary text</div>
                     </div>
                 </div>
                 <!-- Grey 09 -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #495057;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-grey-09);"></div>
                     <div class="color-info">
                         <div class="color-name">Grey 09</div>
                         <div class="color-value">var(--color-grey-09)</div>
-                        <div class="color-value">#495057</div>
                         <div class="color-usage">Medium emphasis text</div>
                     </div>
                 </div>
                 <!-- Grey 10 -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #343A40;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-grey-10);"></div>
                     <div class="color-info">
                         <div class="color-name">Grey 10</div>
                         <div class="color-value">var(--color-grey-10)</div>
-                        <div class="color-value">#343A40</div>
                         <div class="color-usage">Primary text</div>
                     </div>
                 </div>
                 <!-- Grey 11 -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #212529;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-grey-11);"></div>
                     <div class="color-info">
                         <div class="color-name">Grey 11</div>
                         <div class="color-value">var(--color-grey-11)</div>
-                        <div class="color-value">#212529</div>
                         <div class="color-usage">High emphasis text</div>
                     </div>
                 </div>
                 <!-- Grey 12 -->
                 <div class="color-card">
-                    <div class="color-swatch" style="background-color: #1A1A1A;"></div>
+                    <div class="color-swatch" style="background-color: var(--color-grey-12);"></div>
                     <div class="color-info">
                         <div class="color-name">Grey 12</div>
                         <div class="color-value">var(--color-grey-12)</div>
-                        <div class="color-value">#1A1A1A</div>
                         <div class="color-usage">Headings, darkest shade</div>
                     </div>
                 </div>
@@ -461,7 +407,6 @@
                     <div class="color-info">
                         <div class="color-name">Primary 50</div>
                         <div class="color-value">var(--color-primary-50)</div>
-                        <div class="color-value">#F9FEE6</div>
                         <div class="color-usage">Subtle backgrounds, hover states</div>
                     </div>
                 </div>
@@ -471,7 +416,6 @@
                     <div class="color-info">
                         <div class="color-name">Primary 100</div>
                         <div class="color-value">var(--color-primary-100)</div>
-                        <div class="color-value">#F2FED0</div>
                         <div class="color-usage">Light backgrounds, disabled states</div>
                     </div>
                 </div>
@@ -481,7 +425,6 @@
                     <div class="color-info">
                         <div class="color-name">Primary 200</div>
                         <div class="color-value">var(--color-primary-200)</div>
-                        <div class="color-value">#E8FEA8</div>
                         <div class="color-usage">Secondary buttons, highlights</div>
                     </div>
                 </div>
@@ -491,7 +434,6 @@
                     <div class="color-info">
                         <div class="color-name">Primary 300</div>
                         <div class="color-value">var(--color-primary-300)</div>
-                        <div class="color-value">#DFFE80</div>
                         <div class="color-usage">Active states, focus rings</div>
                     </div>
                 </div>
@@ -501,7 +443,6 @@
                     <div class="color-info">
                         <div class="color-name">Primary 400</div>
                         <div class="color-value">var(--color-primary-400)</div>
-                        <div class="color-value">#D5FD1B</div>
                         <div class="color-usage">Main brand color, primary buttons</div>
                     </div>
                 </div>
@@ -511,7 +452,6 @@
                     <div class="color-info">
                         <div class="color-name">Primary 500</div>
                         <div class="color-value">var(--color-primary-500)</div>
-                        <div class="color-value">#B8E00F</div>
                         <div class="color-usage">Hover states on primary</div>
                     </div>
                 </div>
@@ -521,7 +461,6 @@
                     <div class="color-info">
                         <div class="color-name">Primary 600</div>
                         <div class="color-value">var(--color-primary-600)</div>
-                        <div class="color-value">#9BC308</div>
                         <div class="color-usage">Active states on primary</div>
                     </div>
                 </div>
@@ -531,7 +470,6 @@
                     <div class="color-info">
                         <div class="color-name">Primary 700</div>
                         <div class="color-value">var(--color-primary-700)</div>
-                        <div class="color-value">#7EA604</div>
                         <div class="color-usage">Dark accents, text on light</div>
                     </div>
                 </div>
@@ -541,11 +479,71 @@
                     <div class="color-info">
                         <div class="color-name">Primary 800</div>
                         <div class="color-value">var(--color-primary-800)</div>
-                        <div class="color-value">#618902</div>
                         <div class="color-usage">Darkest shade, high contrast</div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Semantic Colors</h2>
+            <div class="semantic-color-grid">
+                <!-- Primary -->
+                <div class="semantic-color-card">
+                    <div class="semantic-color-swatch" style="background-color: var(--color-primary);"></div>
+                    <div class="semantic-color-info">
+                        <div class="color-name">Primary</div>
+                        <div class="color-value">var(--color-primary)</div>
+                        <div class="color-usage">Main brand color</div>
+                    </div>
+                </div>
+                <!-- Secondary -->
+                <div class="semantic-color-card">
+                    <div class="semantic-color-swatch" style="background-color: var(--color-secondary);"></div>
+                    <div class="semantic-color-info">
+                        <div class="color-name">Secondary</div>
+                        <div class="color-value">var(--color-secondary)</div>
+                        <div class="color-usage">Supporting actions</div>
+                    </div>
+                </div>
+                <!-- Success -->
+                <div class="semantic-color-card">
+                    <div class="semantic-color-swatch" style="background-color: var(--color-success);"></div>
+                    <div class="semantic-color-info">
+                        <div class="color-name">Success</div>
+                        <div class="color-value">var(--color-success)</div>
+                        <div class="color-usage">Positive feedback</div>
+                    </div>
+                </div>
+                <!-- Warning -->
+                <div class="semantic-color-card">
+                    <div class="semantic-color-swatch" style="background-color: var(--color-warning);"></div>
+                    <div class="semantic-color-info">
+                        <div class="color-name">Warning</div>
+                        <div class="color-value">var(--color-warning)</div>
+                        <div class="color-usage">Cautionary feedback</div>
+                    </div>
+                </div>
+                <!-- Error -->
+                <div class="semantic-color-card">
+                    <div class="semantic-color-swatch" style="background-color: var(--color-error);"></div>
+                    <div class="semantic-color-info">
+                        <div class="color-name">Error</div>
+                        <div class="color-value">var(--color-error)</div>
+                        <div class="color-usage">Error messages</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Accessibility</h2>
+            <p>All color combinations in the system meet WCAG 2.1 AA standards for contrast ratio. When using colors, ensure:</p>
+            <ul>
+                <li>Text colors have sufficient contrast with their background (4.5:1 for normal text, 3:1 for large text)</li>
+                <li>Don't rely solely on color to convey information</li>
+                <li>Provide alternative visual cues (icons, patterns) alongside color</li>
+            </ul>
         </div>
     </main>
 </body>

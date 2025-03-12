@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icons - Fluent Design System</title>
+    <link rel="stylesheet" href="../design-system.css">
+    <link rel="stylesheet" href="../icons/icon-system.css">
+    <style>
+        .demo-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: var(--color-grey-02);
+            padding: var(--spacing-lg);
+            border-right: 1px solid var(--color-grey-04);
+            overflow-y: auto;
+        }
+
+        .demo-content {
+            margin-left: 250px;
+            padding: var(--spacing-2xl);
+            max-width: 1200px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .demo-section {
+            margin-bottom: var(--spacing-2xl);
+            max-width: 1000px;
+            margin: 0 auto var(--spacing-2xl);
+            padding: 0;
+        }
+
+        .demo-section h1 {
+            font-size: 48px;
+            line-height: 60px;
+            font-weight: 800;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
+            font-family: var(--font-family-base);
+        }
+
+        .demo-section h2 {
+            font-size: 32px;
+            line-height: 40px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-lg);
+            letter-spacing: -0.01em;
+            font-family: var(--font-family-base);
+            padding: 0;
+        }
+
+        .demo-link {
+            display: block;
+            color: var(--color-grey-12);
+            text-decoration: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            transition: all 0.2s ease;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 2px;
+        }
+
+        .demo-link:hover {
+            color: var(--color-grey-12);
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .demo-link.active, 
+        .demo-link[aria-current="page"] {
+            color: var(--color-grey-12);
+            background-color: var(--color-grey-05);
+            font-weight: bold;
+        }
+
+        .demo-link.active:hover, 
+        .demo-link[aria-current="page"]:hover {
+            background-color: var(--color-grey-06);
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--spacing-md);
+            border-radius: 8px;
+            background-color: var(--color-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-item:hover {
+            background-color: var(--color-grey-02);
+        }
+
+        .icon-name {
+            margin-top: var(--spacing-sm);
+            font-size: var(--font-size-small);
+            color: var(--color-grey-10);
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .size-demo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .size-label {
+            width: 100px;
+            font-size: var(--font-size-small);
+            color: var(--color-grey-10);
+        }
+
+        .code-example {
+            background-color: var(--color-grey-02);
+            padding: var(--spacing-md);
+            border-radius: 4px;
+            margin: var(--spacing-md) 0;
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-small);
+        }
+
+        .demo-nav h2 {
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+            font-family: var(--font-family-base);
+            padding: 0;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.01em;
+            font-family: var(--font-family-base);
+        }
+
+        .card h4 {
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.01em;
+            font-family: var(--font-family-base);
+        }
+
+        .demo-section p {
+            font-size: 15px;
+            line-height: 22px;
+            font-weight: 500;
+            color: var(--color-grey-10);
+            margin-bottom: var(--spacing-md);
+            font-family: var(--font-family-base);
+        }
+    </style>
+</head>
+<body>
+    <nav class="demo-nav">
+        <h2>Components</h2>
+        <a href="../index.html" class="demo-link">Home</a>
+        <a href="colors.html" class="demo-link">Colors</a>
+        <a href="typography.html" class="demo-link">Typography</a>
+        <a href="spacing.html" class="demo-link">Spacing</a>
+        <a href="icons.html" class="demo-link active" aria-current="page">Icons</a>
+        <a href="buttons.html" class="demo-link">Buttons</a>
+        <a href="forms.html" class="demo-link">Forms</a>
+        <a href="cards.html" class="demo-link">Cards</a>
+        <a href="layout.html" class="demo-link">Layout</a>
+    </nav>
+
+    <main class="demo-content">
+        <div class="demo-section">
+            <h1>Icons</h1>
+            <p>A comprehensive icon system based on Microsoft's Fluent 2 Design System</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>Usage</h2>
+            <div class="code-example">
+                <pre><code>&lt;i class="icon icon--md" data-icon="home"&gt;&lt;/i&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Icon Sizes</h2>
+            <div class="card">
+                <div class="size-demo">
+                    <span class="size-label">Extra Small (12px)</span>
+                    <i class="icon icon--xs" data-icon="home"></i>
+                </div>
+                <div class="size-demo">
+                    <span class="size-label">Small (16px)</span>
+                    <i class="icon icon--sm" data-icon="home"></i>
+                </div>
+                <div class="size-demo">
+                    <span class="size-label">Medium (20px)</span>
+                    <i class="icon icon--md" data-icon="home"></i>
+                </div>
+                <div class="size-demo">
+                    <span class="size-label">Large (24px)</span>
+                    <i class="icon icon--lg" data-icon="home"></i>
+                </div>
+                <div class="size-demo">
+                    <span class="size-label">Extra Large (32px)</span>
+                    <i class="icon icon--xl" data-icon="home"></i>
+                </div>
+                <div class="size-demo">
+                    <span class="size-label">2X Large (48px)</span>
+                    <i class="icon icon--2xl" data-icon="home"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Icon Colors</h2>
+            <div class="color-grid">
+                <div class="card">
+                    <h4>Default</h4>
+                    <i class="icon icon--lg" data-icon="info"></i>
+                    <div class="code-example">
+                        <code>icon</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Subtle</h4>
+                    <i class="icon icon--lg icon--subtle" data-icon="info"></i>
+                    <div class="code-example">
+                        <code>icon icon--subtle</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Brand</h4>
+                    <i class="icon icon--lg icon--brand" data-icon="info"></i>
+                    <div class="code-example">
+                        <code>icon icon--brand</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Success</h4>
+                    <i class="icon icon--lg icon--success" data-icon="check"></i>
+                    <div class="code-example">
+                        <code>icon icon--success</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Warning</h4>
+                    <i class="icon icon--lg icon--warning" data-icon="alert"></i>
+                    <div class="code-example">
+                        <code>icon icon--warning</code>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Error</h4>
+                    <i class="icon icon--lg icon--error" data-icon="x"></i>
+                    <div class="code-example">
+                        <code>icon icon--error</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Icon Library</h2>
+            <div class="icon-grid">
+                <!-- Icons will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Interactive Examples</h2>
+            <div class="card">
+                <h3>Icon Buttons</h3>
+                <button class="icon-button">
+                    <i class="icon" data-icon="menu"></i>
+                </button>
+                <button class="icon-button">
+                    <i class="icon" data-icon="search"></i>
+                </button>
+                <button class="icon-button">
+                    <i class="icon" data-icon="settings"></i>
+                </button>
+                <div class="code-example">
+                    <pre><code>&lt;button class="icon-button"&gt;
+    &lt;i class="icon" data-icon="menu"&gt;&lt;/i&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="card mt-lg">
+                <h3>Icon with Text</h3>
+                <button class="button button--primary">
+                    <i class="icon icon--inverse" data-icon="plus"></i>
+                    <span style="margin-left: var(--spacing-xs);">Add Item</span>
+                </button>
+                <div class="code-example">
+                    <pre><code>&lt;button class="button button--primary"&gt;
+    &lt;i class="icon icon--inverse" data-icon="plus"&gt;&lt;/i&gt;
+    &lt;span&gt;Add Item&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="card mt-lg">
+                <h3>Loading State</h3>
+                <i class="icon icon--lg icon--brand icon--spin" data-icon="settings"></i>
+                <div class="code-example">
+                    <code>&lt;i class="icon icon--lg icon--brand icon--spin" data-icon="settings"&gt;&lt;/i&gt;</code>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../icons/icons.js"></script>
+    <script>
+        // Initialize icons
+        function initializeIcons() {
+            const iconElements = document.querySelectorAll('[data-icon]');
+            iconElements.forEach(element => {
+                const iconName = element.getAttribute('data-icon');
+                if (icons[iconName]) {
+                    element.innerHTML = icons[iconName];
+                }
+            });
+        }
+
+        // Populate icon library grid
+        function populateIconLibrary() {
+            const iconGrid = document.querySelector('.icon-grid');
+            Object.entries(icons).forEach(([name, svg]) => {
+                const div = document.createElement('div');
+                div.className = 'icon-item';
+                div.innerHTML = `
+                    <i class="icon icon--md" data-icon="${name}"></i>
+                    <span class="icon-name">${name}</span>
+                `;
+                iconGrid.appendChild(div);
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeIcons();
+            populateIconLibrary();
+        });
+    </script>
+</body>
+</html> 

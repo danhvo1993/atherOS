@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms - AtherOS Design System</title>
+    <link rel="stylesheet" href="../design-system.css">
+    <style>
+        .demo-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: var(--color-grey-02);
+            padding: var(--spacing-lg);
+            border-right: 1px solid var(--color-grey-04);
+            overflow-y: auto;
+        }
+
+        .demo-content {
+            margin-left: 250px;
+            padding: var(--spacing-2xl);
+            max-width: 1200px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .demo-section {
+            margin-bottom: var(--spacing-2xl);
+            max-width: 1000px;
+            margin: 0 auto var(--spacing-2xl);
+            padding: 0;
+        }
+
+        .demo-section h1 {
+            font-size: 48px;
+            line-height: 60px;
+            font-weight: 800;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
+        }
+
+        .demo-section h2 {
+            font-size: 32px;
+            line-height: 40px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-lg);
+            letter-spacing: -0.01em;
+            padding: 0;
+        }
+
+        .demo-section p {
+            font-size: 15px;
+            line-height: 22px;
+            font-weight: 500;
+            color: var(--color-grey-10);
+        }
+
+        .demo-nav h2 {
+            font-size: 24px;
+            line-height: 32px;
+            font-weight: 700;
+            color: var(--color-grey-12);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .demo-link {
+            display: block;
+            color: var(--color-grey-12);
+            text-decoration: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            transition: all 0.2s ease;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 2px;
+        }
+
+        .demo-link:hover {
+            color: var(--color-grey-12);
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .demo-link.active, 
+        .demo-link[aria-current="page"] {
+            color: var(--color-grey-12);
+            background-color: var(--color-grey-05);
+            font-weight: bold;
+        }
+
+        .demo-link.active:hover, 
+        .demo-link[aria-current="page"]:hover {
+            background-color: var(--color-grey-06);
+        }
+
+        /* Form Components */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            padding: 0;
+            width: 100%;
+        }
+
+        .form-example {
+            margin: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: var(--color-white);
+            padding: var(--spacing-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--color-grey-12);
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--color-grey-04);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            line-height: 20px;
+            color: var(--color-grey-12);
+            background: var(--color-white);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: var(--color-grey-08);
+            opacity: 0.5;
+        }
+
+        .form-helper {
+            margin-top: var(--spacing-xs);
+            font-size: 12px;
+            color: var(--color-grey-08);
+        }
+
+        .form-error {
+            color: var(--color-red);
+            font-size: 12px;
+            margin-top: var(--spacing-xs);
+        }
+
+        .form-input.error {
+            border-color: var(--color-red);
+        }
+
+        .form-input.error:focus {
+            box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .checkbox-input {
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--color-grey-04);
+            border-radius: 4px;
+            cursor: pointer;
+            accent-color: var(--color-primary);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .radio-input {
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--color-grey-04);
+            border-radius: 50%;
+            cursor: pointer;
+            accent-color: var(--color-primary);
+        }
+
+        .select-input {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--color-grey-04);
+            border-radius: 8px;
+            background-color: var(--color-white);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right var(--spacing-sm) center;
+            padding-right: var(--spacing-xl);
+            color: var(--color-grey-12);
+            font-size: 14px;
+        }
+
+        .textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+        }
+
+        .button--primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .button--primary:hover {
+            filter: brightness(1.1);
+        }
+
+        .code-example {
+            background-color: var(--color-grey-02);
+            padding: var(--spacing-md);
+            border-radius: 4px;
+            margin: var(--spacing-md) 0;
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-small);
+        }
+    </style>
+</head>
+<body>
+    <nav class="demo-nav">
+        <h2>Components</h2>
+        <a href="../index.html" class="demo-link">Home</a>
+        <a href="colors.html" class="demo-link">Colors</a>
+        <a href="typography.html" class="demo-link">Typography</a>
+        <a href="spacing.html" class="demo-link">Spacing</a>
+        <a href="icons.html" class="demo-link">Icons</a>
+        <a href="buttons.html" class="demo-link">Buttons</a>
+        <a href="forms.html" class="demo-link active" aria-current="page">Forms</a>
+        <a href="cards.html" class="demo-link">Cards</a>
+        <a href="layout.html" class="demo-link">Layout</a>
+    </nav>
+
+    <main class="demo-content">
+        <div class="demo-section">
+            <h1>Forms</h1>
+            <p>Form components are designed to be accessible, consistent, and easy to use. They follow WCAG guidelines and provide clear feedback to users.</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>Usage</h2>
+            <div class="code-example">
+                <pre><code>&lt;div class="form-group"&gt;
+    &lt;label class="form-label"&gt;Input Label&lt;/label&gt;
+    &lt;input type="text" class="form-input" placeholder="Placeholder text"&gt;
+    &lt;div class="form-helper"&gt;Helper text provides additional context&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Text Inputs</h2>
+            <div class="form-grid">
+                <!-- Default Input -->
+                <div class="form-example">
+                    <div class="form-group">
+                        <label class="form-label">Default Input</label>
+                        <input type="text" class="form-input" placeholder="Enter text">
+                        <div class="form-helper">Helper text provides additional context</div>
+                    </div>
+                </div>
+
+                <!-- Error State -->
+                <div class="form-example">
+                    <div class="form-group">
+                        <label class="form-label">Error State</label>
+                        <input type="text" class="form-input error" value="Invalid input">
+                        <div class="form-error">This field is required</div>
+                    </div>
+                </div>
+
+                <!-- Disabled State -->
+                <div class="form-example">
+                    <div class="form-group">
+                        <label class="form-label">Disabled State</label>
+                        <input type="text" class="form-input" disabled value="Disabled input">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Selection Controls</h2>
+            <div class="form-grid">
+                <!-- Checkboxes -->
+                <div class="form-example">
+                    <label class="form-label">Checkboxes</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" class="checkbox-input" id="checkbox1">
+                        <label for="checkbox1">Option 1</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" class="checkbox-input" id="checkbox2">
+                        <label for="checkbox2">Option 2</label>
+                    </div>
+                </div>
+
+                <!-- Radio Buttons -->
+                <div class="form-example">
+                    <label class="form-label">Radio Buttons</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" class="radio-input" name="radio" id="radio1">
+                            <label for="radio1">Option 1</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" class="radio-input" name="radio" id="radio2">
+                            <label for="radio2">Option 2</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Select Input -->
+                <div class="form-example">
+                    <div class="form-group">
+                        <label class="form-label">Select Input</label>
+                        <select class="select-input">
+                            <option>Select an option</option>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Complex Inputs</h2>
+            <div class="form-grid">
+                <!-- Textarea -->
+                <div class="form-example">
+                    <div class="form-group">
+                        <label class="form-label">Textarea</label>
+                        <textarea class="form-input textarea" placeholder="Enter long text"></textarea>
+                    </div>
+                </div>
+
+                <!-- Form Example -->
+                <div class="form-example">
+                    <form>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-input" placeholder="Enter password">
+                        </div>
+                        <button type="submit" class="button button--primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Use clear, concise labels for form fields</li>
+                <li>Provide helpful placeholder text when needed</li>
+                <li>Show validation errors inline</li>
+                <li>Group related form elements</li>
+                <li>Maintain consistent spacing between form elements</li>
+                <li>Use appropriate input types for different data</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html> 
